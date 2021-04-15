@@ -1,4 +1,3 @@
-import javax.naming.ldap.Control;
 
 public interface View {
     void print();

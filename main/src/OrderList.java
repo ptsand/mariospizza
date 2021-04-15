@@ -13,8 +13,8 @@ public class OrderList implements View {
     }
     @Override
     public void print() {
-        System.out.println("Unfinished Orders (enter b to go back or q to quit)");
-        // TODO: show the actual orders
+        System.out.println("Unfinished Orders sorted by finishtime (enter b to go back or q to quit)");
+        // TODO: show the actual orders sorted
         for (int i = 0; i<5; i++) {
             System.out.println("Order " + i + " to be done");
         }
@@ -25,14 +25,13 @@ public class OrderList implements View {
         Scanner in = new Scanner(System.in);
         switch (in.next()) {
             case "b":
-                System.out.println("Going back to SelectPizza View");
+                System.out.println("Going back to SelectPizza View...");
                 controller.setView(SelectPizza.getInstance());
                 break;
             case "q":
                 System.out.println("Bye...");
                 System.exit(0);
         }
-
     }
 
     @Override

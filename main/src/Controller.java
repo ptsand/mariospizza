@@ -2,28 +2,35 @@ import java.util.ArrayList;
 
 public class Controller {
 
-    private ArrayList<String> order = new ArrayList<String>(); // Change String to Order
-    private ArrayList<String> customer = new ArrayList<String>(); // Change String to Customer
-    private ArrayList<String> pizza = new ArrayList<String>(); // Change String to Pizza
+    private ArrayList<String> orders = new ArrayList<String>(); // Change String to Order
+    private ArrayList<String> customers = new ArrayList<String>(); // Change String to Customer
+    private ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
     private View view;
 
     public Controller(View view) {
         this.view = view;
     }
 
-    public void setView(View currentView) {
-        this.view = currentView;
-        if (currentView.getController() == null) currentView.setController(this);
-        currentView.print();
-        currentView.handleInput();
+    public void initialize() {
+        loadPizzasFromFile("path1");
+        loadCustomersFromFile("path2");
     }
 
-    public void initialize() {
-
+    public void setView(View view) {
+        this.view = view;
+        if (view.getController() == null) view.setController(this);
+        view.print();
+        view.handleInput();
     }
 
     public void createOrder(ArrayList<String> pizzas) {
+        System.out.println("Orderlist: " + pizzas);
+        setView(SelectPizza.getInstance());
+    }
 
+    public void createOrder(String pizza) {
+        System.out.println("Ordered pizza: "+ pizza);
+        setView(SelectPizza.getInstance());
     }
 
     public void createCustomer(String customer) {
