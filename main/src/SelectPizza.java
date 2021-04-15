@@ -2,9 +2,28 @@ import java.util.Scanner;
 
 public class SelectPizza implements View {
 
+    private Controller controller;
+    private static SelectPizza instance;
+
+    public static SelectPizza getInstance(){
+        if(instance == null){
+            instance = new SelectPizza();
+        }
+        return instance;
+    }
+
+    public void setController(Controller c) {
+        this.controller = c;
+    }
+
+    @Override
+    public Controller getController() {
+        return this.controller;
+    }
+
     @Override
     public void print() {
-        System.out.println("Please select pizza (enter q to quit):");
+        System.out.println("Please select pizza (enter q to quit or o for unfinished OrderList):");
         System.out.println("0. pizza 0");
         System.out.println("1. pizza 1");
     }
@@ -18,6 +37,10 @@ public class SelectPizza implements View {
                 break;
             case "1":
                 System.out.println("you selected pizza 1");
+                break;
+            case "o":
+                System.out.print("Change to order View");
+                controller.setView(OrderList.getInstance());
                 break;
             case "q":
                 System.out.println("Bye...");
