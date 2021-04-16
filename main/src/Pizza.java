@@ -9,4 +9,7 @@ public class Pizza {
         this.description = description;
         this.price = price;
     }
+    public String toString(){
+        return number + " " + description + " " + price;
+    }
 }
