@@ -15,7 +15,7 @@ public class OrderList implements View {
     public void print() {
         System.out.println("Unfinished Orders sorted by finishtime (enter b to go back or q to quit)");
         // TODO: show the actual orders sorted
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println("Order " + i + " to be done");
         }
     }

@@ -12,7 +12,7 @@ public class Controller {
     }
 
     public void initialize() {
-        loadPizzasFromFile("path1");
+        loadPizzasFromFile(MenuKort.listenOverPizzaerne());
         loadCustomersFromFile("path2");
     }
 

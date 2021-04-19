@@ -34,6 +34,7 @@ public class SelectPizza implements View {
     public void handleInput() {
         Scanner scan = new Scanner(System.in);
         String in = scan.next();
+
         if (in.length() > 2) {
             ArrayList<String> pizzas = new ArrayList<String>();
             for (String n : in.split(",")) {
