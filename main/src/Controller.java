@@ -23,12 +23,12 @@ public class Controller {
         view.handleInput();
     }
 
-    public void createOrder(ArrayList<String> pizzas) {
+    public void createOrder(ArrayList<Pizza> pizzas) {
         System.out.println("Orderlist: " + pizzas);
         setView(SelectPizza.getInstance());
     }
 
-    public void createOrder(String pizza) {
+    public void createOrder(Pizza pizza) {
         System.out.println("Ordered pizza: "+ pizza);
         setView(SelectPizza.getInstance());
     }
