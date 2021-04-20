@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.time.LocalTime;
 
 public class Controller {
 
@@ -22,14 +23,20 @@ public class Controller {
         view.handleInput();
     }
 
-    public void createOrder(ArrayList<Pizza> pizzas) {
-        System.out.println("Orderlist: " + pizzas);
+    public void createOrder(ArrayList<Pizza> pizzas, int timeOffset) {
+        System.out.println("Pizzas chosen: " + pizzas);
+        LocalTime createTime = LocalTime.now();
+        LocalTime finishTime = createTime.plusMinutes(timeOffset);
+        // Order order = new Order(createTime, finishTime, pizzas);
+        // orders.add(order);
         setView(SelectPizza.getInstance());
     }
 
-    public void createOrder(Pizza pizza) {
+    public void createOrder(Pizza pizza, int timeOffset) {
         System.out.println("Ordered pizza: "+ pizza);
-        setView(SelectPizza.getInstance());
+        ArrayList<Pizza> chosenPizza = new ArrayList<Pizza>();
+        chosenPizza.add(pizza);
+        createOrder(chosenPizza, timeOffset);
     }
 
     public void createCustomer(String customer) {

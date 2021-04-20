@@ -36,8 +36,10 @@ public class SelectPizza implements View {
     public void handleInput() {
         Scanner scan = new Scanner(System.in);
         String in = scan.next();
+        // Order multiple pizzas with comma as delimiter
         if (in.length() > 2 && in.contains(",")) {
             ArrayList<Pizza> pizzasSelected = new ArrayList<Pizza>();
+            // loop over numbers chosen
             for (String n : in.split(",")) {
                 try {
                     int number = Integer.parseInt(n);
@@ -46,7 +48,7 @@ public class SelectPizza implements View {
                     System.out.println("Wrong input!");
                 }
             }
-            controller.createOrder(pizzasSelected);
+            controller.createOrder(pizzasSelected, 10);
         } else if (in.equals("o")) {
             System.out.print("Change to order View");
             controller.setView(OrderList.getInstance());
@@ -56,7 +58,7 @@ public class SelectPizza implements View {
         } else {
             try {
                 int number = Integer.parseInt(in);
-                controller.createOrder(pizzas.get(number));
+                controller.createOrder(pizzas.get(number), 10);
             } catch (NumberFormatException e) {
                 System.out.println("Wrong input!");
             }
