@@ -4,7 +4,6 @@ public class Controller {
 
     private ArrayList<String> orders = new ArrayList<String>(); // Change String to Order
     private ArrayList<String> customers = new ArrayList<String>(); // Change String to Customer
-    private ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
     private View view;
 
     public Controller(View view) {

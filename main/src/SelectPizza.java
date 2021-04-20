@@ -28,7 +28,7 @@ public class SelectPizza implements View {
         System.out.println("Please select pizza (enter q to quit or o for unfinished OrderList):");
         System.out.println("To add multiple pizzas use comma as delimiter (ex 0,1)");
         for (Pizza pizza : pizzas) {
-            System.out.printf("%d, %s, %f",pizza.getNumber(),pizza.getDescription(),pizza.getPrice());
+            System.out.printf("%d  %s  %.2f\n",pizza.getNumber(),pizza.getDescription(),pizza.getPrice());
         }
     }
 
@@ -36,17 +36,21 @@ public class SelectPizza implements View {
     public void handleInput() {
         Scanner scan = new Scanner(System.in);
         String in = scan.next();
-
-        if (in.length() > 2) { /*
-            ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+        if (in.length() > 2 && in.contains(",")) {
+            ArrayList<Pizza> pizzasSelected = new ArrayList<Pizza>();
             for (String n : in.split(",")) {
-                pizzas.add("n",);
+                try {
+                    int number = Integer.parseInt(n);
+                    pizzasSelected.add(pizzas.get(number));
+                } catch (NumberFormatException e) {
+                    System.out.println("Wrong input!");
+                }
             }
-            controller.createOrder(pizzas); */
-        } else if (in == "o") {
+            controller.createOrder(pizzasSelected);
+        } else if (in.equals("o")) {
             System.out.print("Change to order View");
             controller.setView(OrderList.getInstance());
-        } else if (in == "q") {
+        } else if (in.equals("q")) {
             System.out.println("Bye...");
             System.exit(0);
         } else {
@@ -54,7 +58,7 @@ public class SelectPizza implements View {
                 int number = Integer.parseInt(in);
                 controller.createOrder(pizzas.get(number));
             } catch (NumberFormatException e) {
-                System.out.println("Wrong input, try again!");
+                System.out.println("Wrong input!");
             }
         }
 
