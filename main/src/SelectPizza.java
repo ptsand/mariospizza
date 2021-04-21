@@ -25,7 +25,7 @@ public class SelectPizza implements View {
 
     @Override
     public void print() {
-        System.out.println("Please select pizza (enter q to quit, r to delete an order or o for unfinished OrderList):");
+        System.out.println("Please select pizza (enter q to quit or o for unfinished OrderList):");
         System.out.println("To add multiple pizzas use comma as delimiter (ex 0,1)");
         for (Pizza pizza : pizzas) {
             System.out.printf("%d  %s  %.2f\n",pizza.getNumber(),pizza.getDescription(),pizza.getPrice());
