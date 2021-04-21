@@ -35,6 +35,9 @@ public class OrderList implements View {
             case "q":
                 System.out.println("Bye...");
                 System.exit(0);
+            case "r":
+                System.out.println("Please enter the order you wanna delete");
+                controller.getOrders().remove(in.nextInt());
         }
     }
 
