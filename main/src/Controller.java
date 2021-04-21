@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.time.LocalTime;
-
+import java.util.Scanner;
 public class Controller {
 
     private ArrayList<String> orders = new ArrayList<String>(); // Change String to Order
@@ -25,9 +25,9 @@ public class Controller {
 
     public void createOrder(ArrayList<Pizza> pizzas, int timeOffset) {
         System.out.println("Pizzas chosen: " + pizzas);
-        LocalTime createTime = LocalTime.now();
-        LocalTime finishTime = createTime.plusMinutes(timeOffset);
-        // Order order = new Order(createTime, finishTime, pizzas);
+        LocalTime timeOfOrder = LocalTime.now();
+        LocalTime finishTime = timeOfOrder.plusMinutes(timeOffset);
+        //Order order = new Order(finishTime, timeOfOrder, pizzasOrdered);
         // orders.add(order);
         setView(SelectPizza.getInstance());
     }
