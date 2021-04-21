@@ -16,7 +16,6 @@ public class OrderList implements View {
     @Override
     public void print() {
         System.out.println("Unfinished Orders sorted by finishtime (enter b to go back or q to quit)");
-        // TODO: sort by finishTime
         ArrayList<Order> orders = getController().getOrders();
         Collections.sort(orders, new SortByLocalTime());
         for (Order order : orders){
