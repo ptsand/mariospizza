@@ -1,19 +1,17 @@
 import java.util.ArrayList;
 import java.time.LocalTime;
-import java.util.Scanner;
 public class Controller {
 
-    private ArrayList<String> orders = new ArrayList<String>(); // Change String to Order
+    private ArrayList<Order> orders = new ArrayList<Order>(); // Change String to Order
     private ArrayList<String> customers = new ArrayList<String>(); // Change String to Customer
     private View view;
 
-    public Controller(View view) {
-        this.view = view;
+    public ArrayList<Order> getOrders() {
+        return orders;
     }
 
-    public void initialize() {
-        loadPizzasFromFile("path 1");
-        loadCustomersFromFile("path2");
+    public Controller(View view) {
+        this.view = view;
     }
 
     public void setView(View view) {
@@ -27,8 +25,8 @@ public class Controller {
         System.out.println("Pizzas chosen: " + pizzas);
         LocalTime timeOfOrder = LocalTime.now();
         LocalTime finishTime = timeOfOrder.plusMinutes(timeOffset);
-        //Order order = new Order(finishTime, timeOfOrder, pizzasOrdered);
-        // orders.add(order);
+        Order order = new Order(finishTime, timeOfOrder, pizzas);
+        orders.add(order);
         setView(SelectPizza.getInstance());
     }
 
@@ -38,17 +36,4 @@ public class Controller {
         chosenPizza.add(pizza);
         createOrder(chosenPizza, timeOffset);
     }
-
-    public void createCustomer(String customer) {
-
-    }
-
-    public void loadPizzasFromFile(String path) {
-
-    }
-
-    public void loadCustomersFromFile(String path) {
-
-    }
-
 }

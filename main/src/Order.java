@@ -1,16 +1,20 @@
-public class Order {
-    private int finishTime;
-    private int timeOfOrder;
-    private Pizza pizzasOrdered;
+import java.lang.reflect.Array;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
-    public Order(int finishTime, int timeOfOrder, Pizza pizzasOrdered){
+public class Order {
+    private LocalTime finishTime;
+    private LocalTime timeOfOrder;
+    private ArrayList<Pizza> pizzasOrdered;
+
+    public Order(LocalTime finishTime, LocalTime timeOfOrder, ArrayList<Pizza> pizzasOrdered){
         this.finishTime = finishTime;
         this.timeOfOrder = timeOfOrder;
         this.pizzasOrdered = pizzasOrdered;
     }
-    public int getFinishTime(){return finishTime;}
+    public LocalTime getFinishTime(){return finishTime;}
 
-    public int getTimeOfOrder(){return timeOfOrder;}
+    public LocalTime getTimeOfOrder(){return timeOfOrder;}
 
-    public Pizza getPizzasOrdered(){return pizzasOrdered;}
+    public ArrayList<Pizza> getPizzasOrdered(){return pizzasOrdered;}
 }
