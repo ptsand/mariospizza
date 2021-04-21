@@ -48,7 +48,8 @@ public class SelectPizza implements View {
                     System.out.println("Wrong input!");
                 }
             }
-            controller.createOrder(pizzasSelected, 10);
+            int minOffset = scan.nextInt();
+            controller.createOrder(pizzasSelected, minOffset);
         } else if (in.equals("o")) {
             System.out.print("Change to order View");
             controller.setView(OrderList.getInstance());
@@ -58,7 +59,8 @@ public class SelectPizza implements View {
         } else {
             try {
                 int number = Integer.parseInt(in);
-                controller.createOrder(pizzas.get(number), 10);
+                int minOffset = scan.nextInt();
+                controller.createOrder(pizzas.get(number), minOffset);
             } catch (NumberFormatException e) {
                 System.out.println("Wrong input!");
             }

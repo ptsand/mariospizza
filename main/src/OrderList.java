@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class OrderList implements View {
@@ -15,7 +17,9 @@ public class OrderList implements View {
     public void print() {
         System.out.println("Unfinished Orders sorted by finishtime (enter b to go back or q to quit)");
         // TODO: sort by finishTime
-        for (Order order : getController().getOrders()) {
+        ArrayList<Order> orders = getController().getOrders();
+        Collections.sort(orders, new SortByLocalTime());
+        for (Order order : orders){
             System.out.printf("%s - %s\n", order.getFinishTime().toString(), order.getPizzasOrdered().toString());
         }
     }
