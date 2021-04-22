@@ -25,7 +25,7 @@ public class SelectPizza implements View {
 
     @Override
     public void print() {
-        System.out.println("Please select pizza (enter q to quit or o for unfinished OrderList):");
+        System.out.println("Please select pizza (enter q to quit or o for unfinished OrderList, h for order history):");
         System.out.println("To add multiple pizzas use comma as delimiter (ex 0,1)");
         for (Pizza pizza : pizzas) {
             System.out.printf("%d  %s  %.2f\n",pizza.getNumber(),pizza.getDescription(),pizza.getPrice());
@@ -48,11 +48,15 @@ public class SelectPizza implements View {
                     System.out.println("Wrong input!");
                 }
             }
+            System.out.println("Enter time in minutes to finish order:");
             int minOffset = scan.nextInt();
             controller.createOrder(pizzasSelected, minOffset);
         } else if (in.equals("o")) {
             System.out.print("Change to order View");
             controller.setView(OrderList.getInstance());
+        } else if (in.equals("h")) {
+            System.out.print("Change to order history View");
+            controller.setView(OrderHistory.getInstance());
         } else if (in.equals("q")) {
             System.out.println("Bye...");
             System.exit(0);

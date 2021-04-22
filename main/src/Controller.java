@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.time.LocalTime;
 public class Controller {
 
-    private ArrayList<Order> orders = new ArrayList<Order>(); // Change String to Order
-    private ArrayList<String> customers = new ArrayList<String>(); // Change String to Customer
+    private ArrayList<Order> orders = new ArrayList<Order>();
+    private ArrayList<Order> ordersHistory = new ArrayList<Order>();
+
     private View view;
 
     public ArrayList<Order> getOrders() {
@@ -27,6 +28,7 @@ public class Controller {
         LocalTime finishTime = timeOfOrder.plusMinutes(timeOffset);
         Order order = new Order(finishTime, timeOfOrder, pizzas);
         orders.add(order);
+        ordersHistory.add(order);
         setView(SelectPizza.getInstance());
     }
 
@@ -35,5 +37,9 @@ public class Controller {
         ArrayList<Pizza> chosenPizza = new ArrayList<Pizza>();
         chosenPizza.add(pizza);
         createOrder(chosenPizza, timeOffset);
+    }
+
+    public ArrayList<Order> getOrderHistory() {
+        return this.ordersHistory;
     }
 }
