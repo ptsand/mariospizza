@@ -63,6 +63,7 @@ public class SelectPizza implements View {
         } else {
             try {
                 int number = Integer.parseInt(in);
+                System.out.println("Enter time in minutes to finish order:");
                 int minOffset = scan.nextInt();
                 controller.createOrder(pizzas.get(number), minOffset);
             } catch (NumberFormatException e) {
